@@ -10,5 +10,7 @@ package doantourdulich;
  * @author dangh
  */
 public class texting {
-    
+    public static void main(String[] args) {
+        System.out.println("ABCXYZ");
+    }
 }
