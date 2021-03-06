@@ -6,7 +6,7 @@
 package BLL;
 
 import DAL.StaffDAL;
-import Entity.StaffEntity;
+import Entity.tour_nhanvien;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author nguye
  */
 public class StaffBLL {
-    public  static  ArrayList<StaffEntity> staff_list = new ArrayList();
+    public  static  ArrayList<tour_nhanvien> staff_list = new ArrayList();
     public  void ReadStaffBLL() throws Exception
     {
         StaffDAL data = new StaffDAL();

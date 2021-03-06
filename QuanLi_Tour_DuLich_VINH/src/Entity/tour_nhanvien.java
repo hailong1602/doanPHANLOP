@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author nguye
  */
-public class StaffEntity {
+public class tour_nhanvien {
         private int nv_id;
         private String nv_ten;
         private String nv_sdt;
@@ -19,10 +19,10 @@ public class StaffEntity {
         private String nv_email;
         private String nv_cmnd;
 
-    public StaffEntity() {
+    public tour_nhanvien() {
     }
 
-    public StaffEntity(int nv_id, String nv_ten, String nv_sdt, Date nv_ngaysinh, String nv_email, String nv_cmnd) {
+    public tour_nhanvien(int nv_id, String nv_ten, String nv_sdt, Date nv_ngaysinh, String nv_email, String nv_cmnd) {
         this.nv_id = nv_id;
         this.nv_ten = nv_ten;
         this.nv_sdt = nv_sdt;

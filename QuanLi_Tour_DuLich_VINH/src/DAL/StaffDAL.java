@@ -2,7 +2,7 @@ package DAL;
 
 
 import DAL.MySQLConnect;
-import Entity.StaffEntity;
+import Entity.tour_nhanvien;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -21,15 +21,15 @@ import javax.swing.JOptionPane;
  */
 public class StaffDAL  {
     
-    public ArrayList<StaffEntity> ReadStaffDAL() throws Exception{
-        ArrayList<StaffEntity> staff_list = new ArrayList();
+    public ArrayList<tour_nhanvien> ReadStaffDAL() throws Exception{
+        ArrayList<tour_nhanvien> staff_list = new ArrayList();
         MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
         String query = "SELECT * From tour_nhanvien";
         Statement st = connect.getStatement();
         ResultSet rs = st.executeQuery(query);
         try {
             while (rs.next()) {
-                StaffEntity staff = new StaffEntity();
+                tour_nhanvien staff = new tour_nhanvien();
                 staff.setNv_id(rs.getInt("nv_id"));
                 staff.setNv_ten(rs.getString("nv_ten"));
                 staff.setNv_sdt(rs.getString("nv_sdt"));
@@ -45,7 +45,7 @@ public class StaffDAL  {
         return staff_list;
     }
     
-    public void InformationUpdateStaffDAL(StaffEntity staff) {
+    public void InformationUpdateStaffDAL(tour_nhanvien staff) {
         try{           
                 MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();
@@ -65,7 +65,7 @@ public class StaffDAL  {
             }
     }
 
-    public void AddStaffDAL(StaffEntity staff) {
+    public void AddStaffDAL(tour_nhanvien staff) {
         try {
                 MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();
@@ -84,7 +84,7 @@ public class StaffDAL  {
         }
     }
 
-    public void DeleteStaffDAL(StaffEntity staff) {
+    public void DeleteStaffDAL(tour_nhanvien staff) {
         try {
                 MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();
