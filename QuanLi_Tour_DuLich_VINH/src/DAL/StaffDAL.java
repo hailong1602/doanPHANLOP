@@ -20,10 +20,9 @@ import javax.swing.JOptionPane;
  * @author nguye
  */
 public class StaffDAL  {
-    
+    MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
     public ArrayList<tour_nhanvien> ReadStaffDAL() throws Exception{
         ArrayList<tour_nhanvien> staff_list = new ArrayList();
-        MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
         String query = "SELECT * From tour_nhanvien";
         Statement st = connect.getStatement();
         ResultSet rs = st.executeQuery(query);
@@ -47,7 +46,7 @@ public class StaffDAL  {
     
     public void InformationUpdateStaffDAL(tour_nhanvien staff) {
         try{           
-                MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
+                
                 Statement st = connect.getStatement();
                 String sql = "UPDATE tour_nhanvien "
                         + "nv_ten = \"" + staff.getNv_ten() + "\" "
@@ -67,7 +66,6 @@ public class StaffDAL  {
 
     public void AddStaffDAL(tour_nhanvien staff) {
         try {
-                MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();
                 String sql = "INSERT INTO tour_nhanvien (nv_id, nv_ten, nv_sdt, nv_ngaysinh , nv_email, nv_cmnd) VALUES ("
                         + "\"" + staff.getNv_id() + "\""
@@ -86,7 +84,6 @@ public class StaffDAL  {
 
     public void DeleteStaffDAL(tour_nhanvien staff) {
         try {
-                MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();
                 String sql = "DELETE FROM toul_nhanvien WHERE "
                         + "nv_id = \"" + staff.getNv_id() + "\"";
