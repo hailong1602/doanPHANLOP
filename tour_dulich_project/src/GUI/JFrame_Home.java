@@ -29,18 +29,56 @@ public class JFrame_Home extends JFrame{
     
     public void init()
     {
+        setTitle("PHẦN MỀM QUẢN LÝ TOUR DU LỊCH NHÓM 4");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         setLayout(new BorderLayout(3,3));
         menuPanel = new JPanel();
         menuPanel.setPreferredSize(new Dimension(0,60));
         add(menuPanel,BorderLayout.NORTH);
         Font font = new Font("Calibri Light", Font.CENTER_BASELINE, 22);
-//------------------------------------------------------------------------------         
-        JButton lb1 = new JButton("QUẢN LÝ TOUR");
-        lb1.setPreferredSize(new Dimension(200, 60));
-        lb1.setBackground(Color.green);
-        lb1.setFont(font);
-        MouseListener lb1_mouse = new MouseAdapter() {
+//------------------------------------------------------------------------------
+        Font defaultFont = new Font("Arial",Font.BOLD,18);
+        Color textColor = Color.decode("#ffffff");
+        Color backgroundColor = Color.decode("#000000");
+        Color hoverColor = Color.decode("#00aced");
+        
+        JButton bt0 = new JButton("TRANG CHỦ");
+        bt0.setPreferredSize(new Dimension(200, 60));
+        bt0.setFocusPainted(false);
+        bt0.setForeground(textColor);
+        bt0.setBackground(backgroundColor);
+        bt0.setFont(defaultFont);
+        bt0.setOpaque(true);
+        MouseListener bt0_mouse = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                tablePanel.removeAll();
+                tablePanel.updateUI();
+
+                functionPanel.removeAll();
+                functionPanel.updateUI();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bt0.setBackground(hoverColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bt0.setBackground(backgroundColor);
+            }
+        };
+        bt0.addMouseListener(bt0_mouse);
+        
+        JButton bt1 = new JButton("QUẢN LÝ TOUR");
+        bt1.setPreferredSize(new Dimension(200, 60));
+        bt1.setFocusPainted(false);
+        bt1.setForeground(textColor);
+        bt1.setBackground(backgroundColor);
+        bt1.setFont(defaultFont);
+        bt1.setOpaque(true);
+        MouseListener bt1_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
                 Tour_Dulich_Table tmp = new Tour_Dulich_Table();
@@ -58,21 +96,24 @@ public class JFrame_Home extends JFrame{
 
             @Override
             public void mouseEntered(MouseEvent me) {
-                lb1.setBackground(Color.pink);
+                bt1.setBackground(hoverColor);
             }
 
             @Override
             public void mouseExited(MouseEvent me) {
-                lb1.setBackground(Color.green);
+                bt1.setBackground(backgroundColor);
             }
         };
-        lb1.addMouseListener(lb1_mouse);
+        bt1.addMouseListener(bt1_mouse);
         
-        JButton lb2 = new JButton("QUẢN LÝ ĐOÀN KHÁCH");
-        lb2.setPreferredSize(new Dimension(200, 60));
-        lb2.setBackground(Color.green);
-        lb2.setFont(font);
-        MouseListener lb2_mouse = new MouseAdapter() {
+        JButton bt2 = new JButton("QUẢN LÝ ĐOÀN KHÁCH");
+        bt2.setPreferredSize(new Dimension(300, 60));
+        bt2.setFocusPainted(false);
+        bt2.setForeground(textColor);
+        bt2.setBackground(backgroundColor);
+        bt2.setFont(defaultFont);
+        bt2.setOpaque(true);
+        MouseListener bt2_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
                 Doan_Khach_Panel tmp = new Doan_Khach_Panel();
@@ -87,20 +128,23 @@ public class JFrame_Home extends JFrame{
 
             @Override
             public void mouseEntered(MouseEvent me) {
-                lb2.setBackground(Color.pink);
+                bt2.setBackground(hoverColor);
             }
 
             @Override
             public void mouseExited(MouseEvent me) {
-                lb2.setBackground(Color.green);
+                bt2.setBackground(backgroundColor);
             }  
         };
-        lb2.addMouseListener(lb2_mouse);
-        JButton lb3 = new JButton("THỐNG KÊ");
-        lb3.setPreferredSize(new Dimension(200, 60));
-        lb3.setBackground(Color.green);
-        lb3.setFont(font);
-        MouseListener lb3_mouse = new MouseAdapter() {
+        bt2.addMouseListener(bt2_mouse);
+        JButton bt3 = new JButton("THỐNG KÊ");
+        bt3.setPreferredSize(new Dimension(200, 60));
+        bt3.setFocusPainted(false);
+        bt3.setForeground(textColor);
+        bt3.setBackground(backgroundColor);
+        bt3.setFont(defaultFont);
+        bt3.setOpaque(true);
+        MouseListener bt3_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
                 JOptionPane.showInputDialog("Hello");
@@ -108,21 +152,21 @@ public class JFrame_Home extends JFrame{
 
             @Override
             public void mouseEntered(MouseEvent me) {
-                lb3.setBackground(Color.pink);
+                bt3.setBackground(hoverColor);
             }
 
             @Override
             public void mouseExited(MouseEvent me) {
-                lb3.setBackground(Color.green);
+                bt3.setBackground(backgroundColor);
             }
         };
-        lb3.addMouseListener(lb3_mouse);
-        menuPanel.add(lb1);
-        menuPanel.add(lb2);
-        menuPanel.add(lb3);
+        bt3.addMouseListener(bt3_mouse);
+        menuPanel.add(bt0);
+        menuPanel.add(bt1);
+        menuPanel.add(bt2);
+        menuPanel.add(bt3);
 //------------------------------------------------------------------------------      
         tablePanel = new JPanel();
-        tablePanel.setBackground(Color.yellow);
         tablePanel.setPreferredSize(new Dimension(1200,1000));
         add(tablePanel,BorderLayout.WEST);
 //------------------------------------------------------------------------------   

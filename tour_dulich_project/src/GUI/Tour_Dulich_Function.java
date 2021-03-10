@@ -5,7 +5,13 @@
  */
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -14,17 +20,40 @@ import javax.swing.JPanel;
  * @author dangh
  */
 public class Tour_Dulich_Function extends javax.swing.JPanel {
-
-    /**
-     * Creates new form Tour_Dulich_Function
-     */
+    
     public Tour_Dulich_Function() {
         initComponents();
     }
     public JPanel Tour_Dulich_FunctionCreate(){
+        Font defaultFont = new Font("Arial",Font.BOLD,18);
+        Color textColor = Color.decode("#ffffff");
+        Color backgroundColor = Color.decode("#000000");
+        Color hoverColor = Color.decode("#00aced");
+        
         JPanel panel = new JPanel();
-        JButton bt1 = new JButton("Lập danh sách khách hàng");
+        JButton bt1 = new JButton("DANH SÁCH KHÁCH HÀNG");
+        bt1.setForeground(textColor);
+        bt1.setBackground(backgroundColor);
         bt1.setPreferredSize(new Dimension(200, 40));
+        bt1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                Danh_sach_khach_hang newFrame = new Danh_sach_khach_hang();
+                newFrame.setVisible(true);
+                newFrame.setDefaultCloseOperation(newFrame.DISPOSE_ON_CLOSE);
+            }
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bt1.setBackground(hoverColor);
+            }
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bt1.setBackground(backgroundColor);
+            }
+            
+            
+            
+        });
         JButton bt2 = new JButton("Lập danh sách các địa điểm");
         bt2.setPreferredSize(new Dimension(200, 40));
         JButton bt3 = new JButton("Thống kê chi phí");
