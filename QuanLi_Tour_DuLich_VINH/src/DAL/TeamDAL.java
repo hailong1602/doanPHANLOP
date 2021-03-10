@@ -25,12 +25,12 @@ public class TeamDAL {
         try {
             while (rs.next()) {
                 tour_doan team = new tour_doan();
-                team.setDoan_id(rs.getInt("nv_id"));
-                team.setTour_id(rs.getInt("nv_ten"));
-                team.setDoan_name(rs.getString("nv_sdt"));
-                team.setDoan_ngaydi(rs.getDate("nv_ngaysinh"));
-                team.setDoan_ngayve(rs.getDate("nv_email"));
-                team.setDoan_chitietchuogtrinh(rs.getString("nv_cmnd"));
+                team.setDoan_id(rs.getInt("doan_id"));
+                team.setTour_id(rs.getInt("tour_id"));
+                team.setDoan_name(rs.getString("doan_name"));
+                team.setDoan_ngaydi(rs.getDate("doan_ngaydi"));
+                team.setDoan_ngayve(rs.getDate("doan_ngayve"));
+                team.setDoan_chitietchuogtrinh(rs.getString("doan_chitietchuongtrinh"));
                 team_list.add(team);     
         }
         } catch (Exception e) {
@@ -45,12 +45,12 @@ public class TeamDAL {
                 
                 Statement st = connect.getStatement();
                 String sql = "UPDATE tour_doan "
-                        + "nv_ten = \"" + team.getNv_ten() + "\" "
-                        + "nv_sdt = \"" + team.getNv_sdt() + "\" "
-                        + "nv_ngaysinh = \"" + team.getNv_ngaysinh() + "\" "
-                        + "nv_email = \"" + team.getNv_email() + "\" "
-                        + "nv_cmnd = \"" + team.getNv_cmnd() + "\" "
-                        + "WHERE `nv_id`= \"" + team.getNv_id() + "\" ";
+                        + "tour_id = \"" + team.getTour_id() + "\" "
+                        + "doan_name = \"" + team.getDoan_name() + "\" "
+                        + "doan_ngaydi = \"" + team.getDoan_ngaydi() + "\" "
+                        + "doan_ngayve = \"" + team.getDoan_ngayve() + "\" "
+                        + "doan_chitietchuongtrinh = \"" + team.getDoan_chitietchuogtrinh() + "\" "
+                        + "WHERE `doan_id`= \"" + team.getDoan_id() + "\" ";
                 st.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null,"Success");
             }
@@ -63,13 +63,13 @@ public class TeamDAL {
     public void AddStaffDAL(tour_doan team) {
         try {
                 Statement st = connect.getStatement();
-                String sql = "INSERT INTO tour_doan (nv_id, nv_ten, nv_sdt, nv_ngaysinh , nv_email, nv_cmnd) VALUES ("
-                        + "\"" + team.getNv_id() + "\""
-                        + ",\"" + team.getNv_ten() + "\""
-                        + ",\"" + team.getNv_sdt() + "\""
-                        + ",\"" + team.getNv_ngaysinh() + "\""
-                        + ",\"" + team.getNv_email() + "\""
-                        + ",'" + team.getNv_cmnd() + "')";
+                String sql = "INSERT INTO tour_doan (doan_id, tour_id, doan_name, doan_ngaydi , doan_ngayve, doan_chitietchuongtrinh) VALUES ("
+                        + "\"" + team.getDoan_id() + "\""
+                        + ",\"" + team.getTour_id() + "\""
+                        + ",\"" + team.getDoan_name() + "\""
+                        + ",\"" + team.getDoan_ngaydi() + "\""
+                        + ",\"" + team.getDoan_ngayve() + "\""
+                        + ",'" + team.getDoan_chitietchuogtrinh() + "')";
                 st.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null,"Success");
         } catch (Exception e) {
@@ -81,8 +81,8 @@ public class TeamDAL {
     public void DeleteStaffDAL(tour_doan team) {
         try {
                 Statement st = connect.getStatement();
-                String sql = "DELETE FROM toul_nhanvien WHERE "
-                        + "nv_id = \"" + team.getNv_id() + "\"";
+                String sql = "DELETE FROM tour_doan WHERE "
+                        + "doan_id = \"" + team.getDoan_id() + "\"";
                 st.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null,"Success");
         } catch (Exception e) {
