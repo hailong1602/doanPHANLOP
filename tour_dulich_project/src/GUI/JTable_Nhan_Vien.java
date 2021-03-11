@@ -58,6 +58,7 @@ public class JTable_Nhan_Vien extends javax.swing.JPanel {
         table.getColumnModel().getColumn(5).setPreferredWidth(150);
         
         panel.setPreferredSize(new Dimension(1200,1000));
+        panel.setBackground(Color.yellow);
         panel.add(sp);
         panel.setVisible(true);
         return panel;
