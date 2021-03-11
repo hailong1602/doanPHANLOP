@@ -40,7 +40,7 @@ public class MySQLConnect {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            throw new Exception("MySQL JBDC Driver not found ");
+            throw new Exception("MySQL JDBC Driver not found ");
         }
     }
     //ham lay connection
