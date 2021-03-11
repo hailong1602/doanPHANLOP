@@ -81,13 +81,13 @@ public class JFrame_Home extends JFrame{
         MouseListener bt1_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                Tour_Dulich_Table tmp = new Tour_Dulich_Table();
+                JTable_Tour_Dulich tmp = new JTable_Tour_Dulich();
                 JPanel temp = tmp.Tour_Dulich_TableCreate();
                 tablePanel.removeAll();
                 tablePanel.add(temp);
                 tablePanel.updateUI();
                 
-                Tour_Dulich_Function tmp1 = new Tour_Dulich_Function();
+                Function_Tour_Dulich tmp1 = new Function_Tour_Dulich();
                 JPanel temp1 = tmp1.Tour_Dulich_FunctionCreate();
                 functionPanel.removeAll();
                 functionPanel.add(temp1);
@@ -116,7 +116,7 @@ public class JFrame_Home extends JFrame{
         MouseListener bt2_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                Doan_Khach_Panel tmp = new Doan_Khach_Panel();
+                JTable_Doan_Khach tmp = new JTable_Doan_Khach();
                 JPanel temp = tmp.Doan_Khach_TableCreate();
                 tablePanel.removeAll();
                 tablePanel.add(temp);
@@ -137,8 +137,9 @@ public class JFrame_Home extends JFrame{
             }  
         };
         bt2.addMouseListener(bt2_mouse);
-        JButton bt3 = new JButton("THỐNG KÊ");
-        bt3.setPreferredSize(new Dimension(200, 60));
+        
+        JButton bt3 = new JButton("QUẢN LÝ NHÂN VIÊN");
+        bt3.setPreferredSize(new Dimension(300, 60));
         bt3.setFocusPainted(false);
         bt3.setForeground(textColor);
         bt3.setBackground(backgroundColor);
@@ -147,7 +148,14 @@ public class JFrame_Home extends JFrame{
         MouseListener bt3_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                JOptionPane.showInputDialog("Hello");
+                JTable_Nhan_Vien tmp = new JTable_Nhan_Vien();
+                JPanel temp = tmp.Nhan_Vien_TableCreate();
+                tablePanel.removeAll();
+                tablePanel.add(temp);
+                tablePanel.updateUI();     
+                
+                functionPanel.removeAll();
+                functionPanel.updateUI();
             }
 
             @Override
@@ -165,6 +173,63 @@ public class JFrame_Home extends JFrame{
         menuPanel.add(bt1);
         menuPanel.add(bt2);
         menuPanel.add(bt3);
+        
+        JButton bt4 = new JButton("THỐNG KÊ");
+        bt4.setPreferredSize(new Dimension(200, 60));
+        bt4.setFocusPainted(false);
+        bt4.setForeground(textColor);
+        bt4.setBackground(backgroundColor);
+        bt4.setFont(defaultFont);
+        bt4.setOpaque(true);
+        MouseListener bt4_mouse = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                JOptionPane.showInputDialog("Hello");
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bt4.setBackground(hoverColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bt4.setBackground(backgroundColor);
+            }
+        };
+        bt4.addMouseListener(bt4_mouse);
+        
+        JButton bt5 = new JButton("TÌM KIẾM");
+        bt5.setPreferredSize(new Dimension(200, 60));
+        bt5.setFocusPainted(false);
+        bt5.setForeground(textColor);
+        bt5.setBackground(backgroundColor);
+        bt5.setFont(defaultFont);
+        bt5.setOpaque(true);
+        MouseListener bt5_mouse = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                JOptionPane.showInputDialog("Searching...");
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bt5.setBackground(hoverColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bt5.setBackground(backgroundColor);
+            }
+        };
+        bt5.addMouseListener(bt5_mouse);
+        
+        menuPanel.add(bt0);
+        menuPanel.add(bt1);
+        menuPanel.add(bt2);
+        menuPanel.add(bt3);
+        menuPanel.add(bt4);
+        menuPanel.add(bt5);
 //------------------------------------------------------------------------------      
         tablePanel = new JPanel();
         tablePanel.setPreferredSize(new Dimension(1200,1000));

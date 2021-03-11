@@ -19,9 +19,9 @@ import javax.swing.JPanel;
  *
  * @author dangh
  */
-public class Tour_Dulich_Function extends javax.swing.JPanel {
+public class Function_Tour_Dulich extends javax.swing.JPanel {
     
-    public Tour_Dulich_Function() {
+    public Function_Tour_Dulich() {
         initComponents();
     }
     public JPanel Tour_Dulich_FunctionCreate(){
@@ -38,7 +38,7 @@ public class Tour_Dulich_Function extends javax.swing.JPanel {
         bt1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                Danh_sach_khach_hang newFrame = new Danh_sach_khach_hang();
+                JFrame_Khach_Hang newFrame = new JFrame_Khach_Hang();
                 newFrame.setVisible(true);
                 newFrame.setDefaultCloseOperation(newFrame.DISPOSE_ON_CLOSE);
             }

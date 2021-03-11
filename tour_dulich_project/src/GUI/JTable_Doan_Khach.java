@@ -15,12 +15,12 @@ import javax.swing.JTable;
  *
  * @author dangh
  */
-public class Doan_Khach_Panel extends javax.swing.JPanel {
+public class JTable_Doan_Khach extends javax.swing.JPanel {
 
     /**
      * Creates new form Doan_Khach_Panel
      */
-    public Doan_Khach_Panel() {
+    public JTable_Doan_Khach() {
         initComponents();
     }
     public JPanel Doan_Khach_TableCreate(){

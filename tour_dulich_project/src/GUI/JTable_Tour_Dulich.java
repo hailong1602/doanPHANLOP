@@ -18,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nguye
  */
-public class Tour_Dulich_Table extends javax.swing.JPanel {
+public class JTable_Tour_Dulich extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateJPanel_Menu
      */
-    public Tour_Dulich_Table() {
+    public JTable_Tour_Dulich() {
         initComponents();
     }
     
