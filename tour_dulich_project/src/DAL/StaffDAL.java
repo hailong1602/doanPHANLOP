@@ -85,7 +85,7 @@ public class StaffDAL  {
     public void DeleteStaffDAL(tour_nhanvien staff) {
         try {
                 Statement st = connect.getStatement();
-                String sql = "DELETE FROM toul_nhanvien WHERE "
+                String sql = "DELETE FROM tour_nhanvien WHERE "
                         + "nv_id = \"" + staff.getNv_id() + "\"";
                 st.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null,"Success");
