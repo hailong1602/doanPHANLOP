@@ -7,9 +7,13 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import static java.awt.Font.BOLD;
+import java.util.Vector;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,16 +29,34 @@ public class JTable_Doan_Khach extends javax.swing.JPanel {
     }
     public JPanel Doan_Khach_TableCreate(){
         JPanel panel = new JPanel();
-        panel.setPreferredSize(new Dimension(1200,1000));
-        panel.setBackground(Color.blue);
-        JTable table = new JTable(6,6);
-        table.setRowHeight(30);
-        JScrollPane sp = new JScrollPane(table);
-        sp.setPreferredSize(new Dimension(900, 900));
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        for (int i=0 ; i < table.getColumnCount() ; i++){
-            table.getColumnModel().getColumn(i).setPreferredWidth(200);
+        Vector vctHeader = new Vector();
+        Vector vctData = new Vector();
+        String[] strHeader = {"ID","Tên KH","SĐT","Ngày sinh","Email","CMND"};
+        for (int i = 0; i< strHeader.length ; i++)
+        {
+            vctHeader.add(strHeader[i]);
         }
+        JTable table = new JTable(strHeader.length,6);
+        table.setModel(new DefaultTableModel(vctData,vctHeader));
+        JScrollPane sp = new JScrollPane(table);
+        sp.setPreferredSize(new Dimension(1100, 900));
+        
+        table.getTableHeader().setFont(new Font("Arial", BOLD, 18)); //set font cho vector header
+        table.getTableHeader().setForeground(Color.black); //set màu chữ cho header
+        table.getTableHeader().setPreferredSize(new Dimension(30, 40));//set độ dài độ rộng của header
+        table.setRowHeight(40);
+        table.setGridColor(Color.GREEN);
+        table.setFillsViewportHeight(true);//hiển thị table     
+        table.setShowGrid(true);
+        table.setDefaultEditor(Object.class, null);
+        table.getColumnModel().getColumn(0).setPreferredWidth(30);
+        table.getColumnModel().getColumn(1).setPreferredWidth(200);
+        table.getColumnModel().getColumn(2).setPreferredWidth(100);
+        table.getColumnModel().getColumn(3).setPreferredWidth(100);
+        table.getColumnModel().getColumn(4).setPreferredWidth(150);
+        table.getColumnModel().getColumn(5).setPreferredWidth(150);
+        
+        panel.setPreferredSize(new Dimension(1200,1000));
         panel.add(sp);
         panel.setVisible(true);
         return panel;

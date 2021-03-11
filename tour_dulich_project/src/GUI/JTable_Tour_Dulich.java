@@ -7,6 +7,8 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import static java.awt.Font.BOLD;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -41,6 +43,14 @@ public class JTable_Tour_Dulich extends javax.swing.JPanel {
         JScrollPane sp = new JScrollPane(table);
         sp.setPreferredSize(new Dimension(900, 900));
         
+        table.getTableHeader().setFont(new Font("Arial", BOLD, 18)); //set font cho vector header
+        table.getTableHeader().setForeground(Color.black); //set màu chữ cho header
+        table.getTableHeader().setPreferredSize(new Dimension(30, 40));//set độ dài độ rộng của header
+        table.setRowHeight(40);
+        table.setGridColor(Color.GREEN);
+        table.setFillsViewportHeight(true);//hiển thị table     
+        table.setShowGrid(true);
+        table.setDefaultEditor(Object.class, null);
         table.getColumnModel().getColumn(0).setPreferredWidth(60);
         table.getColumnModel().getColumn(1).setPreferredWidth(150);
         table.getColumnModel().getColumn(2).setPreferredWidth(200);
@@ -48,7 +58,6 @@ public class JTable_Tour_Dulich extends javax.swing.JPanel {
         table.getColumnModel().getColumn(4).setPreferredWidth(60);
         
         panel.setPreferredSize(new Dimension(1200,1000));
-        panel.setBackground(Color.red);
         panel.add(sp);
         panel.setVisible(true);
         return panel;
