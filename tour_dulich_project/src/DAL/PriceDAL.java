@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class PriceDAL {
     
-    public ArrayList<tour_gia> ReadStaffDAL() throws Exception{
+    public ArrayList<tour_gia> ReadPriceDAL() throws Exception{
         ArrayList<tour_gia> price_list = new ArrayList<tour_gia>();
         MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
         String query = "SELECT * From tour_gia";
@@ -40,7 +40,7 @@ public class PriceDAL {
         return price_list;
     }
     
-    public void InformationUpdateStaffDAL(tour_gia price_tour) {
+    public void InformationUpdatePriceDAL(tour_gia price_tour) {
         try{           
                 MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();
@@ -59,7 +59,7 @@ public class PriceDAL {
             }
     }
 
-    public void AddStaffDAL(tour_gia price_tour) {
+    public void AddPriceDAL(tour_gia price_tour) {
         try {
                 MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();
@@ -77,7 +77,7 @@ public class PriceDAL {
         }
     }
 
-    public void DeleteStaffDAL(tour_gia price_tour) {
+    public void DeletePriceDAL(tour_gia price_tour) {
         try {
                 MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
                 Statement st = connect.getStatement();

@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import BLL.StaffBLL;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import static java.awt.Component.CENTER_ALIGNMENT;
@@ -19,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import GUI.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *

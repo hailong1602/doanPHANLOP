@@ -22,4 +22,23 @@ public class StaffBLL {
             staff_list = new ArrayList<>();
         staff_list = data.ReadStaffDAL();
     }
+    
+    public static void AddStaffDAL(tour_nhanvien staff)
+    {
+        StaffDAL data = new StaffDAL();
+        data.AddStaffDAL(staff);//gọi hàm thêm bên DAO để thêm sách vào database
+        staff_list.add(staff);//
+    }
+    public static void InformationUpdateStaffDAL(tour_nhanvien staff)
+    {
+        StaffDAL data=new StaffDAL();
+        data.InformationUpdateStaffDAL(staff);
+        staff_list.add(staff);
+    }
+    public static void DeleteStaffDAL(tour_nhanvien staff)
+    {
+        StaffDAL data=new StaffDAL();
+        data.DeleteStaffDAL(staff);
+        staff_list.add(staff);
+    }
 }
