@@ -5,11 +5,15 @@
  */
 package GUI;
 
+import BLL.StaffBLL;
+import Entity.tour_nhanvien;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import static java.awt.Font.BOLD;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -32,17 +36,39 @@ public class JTable_Nhan_Vien extends javax.swing.JPanel {
         JPanel panel = new JPanel();
         Vector vctHeader = new Vector();
         Vector vctData = new Vector();
+        DefaultTableModel model = new DefaultTableModel(vctData,vctHeader);
         String[] strHeader = {"ID","Tên NV","SĐT","Ngày sinh","Email","Nhiệm vụ"};
         for (int i = 0; i< strHeader.length ; i++)
         {
             vctHeader.add(strHeader[i]);
         }
         JTable table = new JTable(strHeader.length,6);
-        table.setModel(new DefaultTableModel(vctData,vctHeader));
+        table.setModel(model);
         JScrollPane sp = new JScrollPane(table);
         sp.setPreferredSize(new Dimension(1100, 900));
         
+        //-------------Add data vao table
+        StaffBLL staffBUS = new StaffBLL();
+        if (StaffBLL.staff_list.size() == 0) {
+            try {
+                staffBUS.ReadStaffBLL();
+            } catch (Exception ex) {
+                Logger.getLogger(JFrame_Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        for (tour_nhanvien staff : StaffBLL.staff_list) {
+            Vector temp = new Vector();
+            temp.add(staff.getNv_id());
+            temp.add(staff.getNv_ten());
+            temp.add(staff.getNv_sdt());
+            temp.add(staff.getNv_ngaysinh());
+            temp.add(staff.getNv_email());
+            temp.add(staff.getNv_cmnd());
+            model.addRow(temp);
+        }
         table.getTableHeader().setFont(new Font("Arial", BOLD, 18)); //set font cho vector header
+        table.setFont((new Font("Arial", 0, 18)));
         table.getTableHeader().setForeground(Color.black); //set màu chữ cho header
         table.getTableHeader().setPreferredSize(new Dimension(30, 40));//set độ dài độ rộng của header
         table.setRowHeight(40);
@@ -51,11 +77,11 @@ public class JTable_Nhan_Vien extends javax.swing.JPanel {
         table.setShowGrid(true);
         table.setDefaultEditor(Object.class, null);
         table.getColumnModel().getColumn(0).setPreferredWidth(30);
-        table.getColumnModel().getColumn(1).setPreferredWidth(200);
+        table.getColumnModel().getColumn(1).setPreferredWidth(150);
         table.getColumnModel().getColumn(2).setPreferredWidth(100);
         table.getColumnModel().getColumn(3).setPreferredWidth(100);
-        table.getColumnModel().getColumn(4).setPreferredWidth(150);
-        table.getColumnModel().getColumn(5).setPreferredWidth(150);
+        table.getColumnModel().getColumn(4).setPreferredWidth(250);
+        table.getColumnModel().getColumn(5).setPreferredWidth(100);
         
         panel.setPreferredSize(new Dimension(1200,1000));
         panel.setBackground(Color.yellow);
