@@ -5,11 +5,16 @@
  */
 package GUI;
 
+import BLL.ToursBLL;
+import Entity.tours;
+import DAL.ToursDAL;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import static java.awt.Font.BOLD;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -34,14 +39,39 @@ public class JTable_Tour_Dulich extends javax.swing.JPanel {
         Vector vctHeader = new Vector();
         Vector vctData = new Vector();
         String[] strHeader = {"ID","Tên tour","Mô tả","Loại tour","Giá"};
+        DefaultTableModel model = new DefaultTableModel(vctData,vctHeader);
         for (int i = 0; i< strHeader.length ; i++)
         {
             vctHeader.add(strHeader[i]);
         }
-        JTable table = new JTable(strHeader.length,6);
-        table.setModel(new DefaultTableModel(vctData,vctHeader));
+        JTable table = new JTable(strHeader.length,5);
+        table.setModel(model);
         JScrollPane sp = new JScrollPane(table);
+        for (int i = 0; i< strHeader.length ; i++)
+        {
+            vctHeader.add(strHeader[i]);
+        }
         sp.setPreferredSize(new Dimension(900, 900));
+        
+        //-------------Add data vao table
+        ToursBLL tourBUS = new ToursBLL();
+        if (ToursBLL.tour_list.size() == 0) {
+            try {
+                tourBUS.ReadStaffBLL();
+            } catch (Exception ex) {
+                Logger.getLogger(JFrame_Home.class.getName()).log(Level.ALL.SEVERE, null, ex);
+            }
+        }
+        
+        for (tours tour : tourBUS.tour_list) {
+            Vector temp = new Vector();
+            temp.add(tour.getTour_id());
+            temp.add(tour.getTour_ten());
+            temp.add(tour.getTour_mota());
+            temp.add(tour.getLoai_id());
+            temp.add(tour.getGia_id());
+            model.addRow(temp);
+        }
         
         table.getTableHeader().setFont(new Font("Arial", BOLD, 18)); //set font cho vector header
         table.getTableHeader().setForeground(Color.black); //set màu chữ cho header
