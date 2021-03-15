@@ -16,7 +16,7 @@ import java.sql.ResultSet;
  */
 public class ToursDAL {
     MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
-    public ArrayList<tours> ReadStaffDAL() throws Exception{
+    public ArrayList<tours> ReadTourDAL() throws Exception{
         ArrayList<tours> tour_list = new ArrayList();
         String query = "SELECT * From tours";
         Statement st = connect.getStatement();
@@ -57,7 +57,7 @@ public class ToursDAL {
             }
     }
 
-    public void AddTourfDAL(tours tour) {
+    public void AddTourDAL(tours tour) {
         try {
                 Statement st = connect.getStatement();
                 String sql = "INSERT INTO tours (tours_id, tour_ten, tour_mota, loai_id , gia_id) VALUES ("
@@ -87,7 +87,7 @@ public class ToursDAL {
         }
     }
     
-    public void LookForAllDAL(tours tour, String lookFor) {
+    public void LookForAllDAL(String lookFor) {
         try {
                 Statement st = connect.getStatement();
                 String sql = "SELECT * FROM tours WHERE tour_id LIKE '%" + lookFor + "%'"

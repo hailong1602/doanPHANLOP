@@ -15,18 +15,18 @@ import Entity.tours;
  */
 public class ToursBLL {
     public  static  ArrayList<tours> tour_list = new ArrayList();
-    public  void ReadStaffBLL() throws Exception
+    public  void ReadToursBLL() throws Exception
     {
         ToursDAL data = new ToursDAL();
         if(tour_list == null)
             tour_list = new ArrayList<>();
-        tour_list = data.ReadStaffDAL();
+        tour_list = data.ReadTourDAL();
     }
     
     public static void AddToursDAL(tours tour)
     {
         ToursDAL data = new ToursDAL();
-        data.AddTourfDAL(tour);//gọi hàm thêm bên DAO để thêm sách vào database
+        data.AddTourDAL(tour);//gọi hàm thêm bên DAO để thêm sách vào database
         tour_list.add(tour);//
     }
     public static void InformationUpdateToursDAL(tours tour)
@@ -40,5 +40,14 @@ public class ToursBLL {
         ToursDAL data=new ToursDAL();
         data.DeleteTourDAL(tour);
         tour_list.add(tour);
+    }
+    
+    public static ArrayList LookForToursBLL(tours tour, String lookFor)
+    {
+        ArrayList<tours> kq = new ArrayList<tours>();
+        ToursDAL data=new ToursDAL();
+        data.LookForAllDAL(lookFor);
+        kq.add(tour);
+        return kq;
     }
 }

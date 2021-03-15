@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class CostBLL {
     public  static  ArrayList<tour_chiphi> cost_list = new ArrayList();
-    public  void ReadStaffBLL() throws Exception
+    public  void ReadCostBLL() throws Exception
     {
         CostDAL data = new CostDAL();
         if(cost_list == null)
@@ -23,22 +23,22 @@ public class CostBLL {
         cost_list = data.ReadCostDAL();
     }
     
-    public static void AddCostDAL(tour_chiphi customer)
+    public static void AddCostDAL(tour_chiphi cost)
     {
         CostDAL data = new CostDAL();
-        data.AddCostDAL(customer);//gọi hàm thêm bên DAO để thêm sách vào database
-        cost_list.add(customer);//
+        data.AddCostDAL(cost);//gọi hàm thêm bên DAO để thêm sách vào database
+        cost_list.add(cost);//
     }
-    public static void InformationUpdateCostDAL(tour_chiphi customer)
+    public static void InformationUpdateCostDAL(tour_chiphi cost)
     {
         CostDAL data = new CostDAL();
-        data.InformationUpdateCostDAL(customer);
-        cost_list.add(customer);
+        data.InformationUpdateCostDAL(cost);
+        cost_list.add(cost);
     }
-    public static void DeleteCostDAL(tour_chiphi customer)
+    public static void DeleteCostDAL(tour_chiphi cost)
     {
         CostDAL data = new CostDAL();
-        data.DeleteCostDAL(customer);
-        cost_list.add(customer);
+        data.DeleteCostDAL(cost);
+        cost_list.add(cost);
     }
 }

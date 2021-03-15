@@ -41,4 +41,13 @@ public class CustomerBLL {
         data.DeleteCustomerDAL(customer);
         customer_list.add(customer);
     }
+    
+    public static ArrayList LookForCustomerBLL(tour_khachhang customer, String lookFor)
+    {
+        ArrayList<tour_khachhang> kq = new ArrayList<tour_khachhang>();
+        CustomerDAL data=new CustomerDAL();
+        data.LookForAllCustomerDAL(lookFor);
+        kq.add(customer);
+        return kq;
+    }
 }

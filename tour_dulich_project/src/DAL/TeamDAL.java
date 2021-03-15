@@ -90,4 +90,22 @@ public class TeamDAL {
             e.printStackTrace();
         }
     }
+    
+    public void LookForAllTeamDAL(String lookFor) {
+        try {
+                Statement st = connect.getStatement();
+                String sql = "SELECT * FROM tour_doan WHERE"
+                        + "doan_id LIKE '%" + lookFor + "%'"
+                        + "OR tour_id LIKE '%" + lookFor + "%'"
+                        + "OR doan_name LIKE '%" + lookFor + "%'"
+                        + "OR doan_ngaydi LIKE '%" + lookFor + "%'"
+                        + "OR doan_ngayve LIKE '%" + lookFor + "%'"
+                        + "OR doan_chitietchuongtrinh LIKE '%" + lookFor + "%'";
+                st.executeUpdate(sql);
+                JOptionPane.showMessageDialog(null,"Success");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error");
+            e.printStackTrace();
+        }
+    }
 }

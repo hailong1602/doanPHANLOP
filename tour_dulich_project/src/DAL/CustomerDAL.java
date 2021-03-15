@@ -90,4 +90,21 @@ public class CustomerDAL {
             e.printStackTrace();
         }
     }
+    
+    public void LookForAllCustomerDAL(String lookFor) {
+        try {
+                Statement st = connect.getStatement();
+                String sql = "SELECT * FROM tour_khachhang WHERE"
+                        + "kh_id LIKE '%" + lookFor + "%'"
+                        + "OR kh_ten LIKE '%" + lookFor + "%'"
+                        + "OR kh_sdt LIKE '%" + lookFor + "%'"
+                        + "OR kh_email LIKE '%" + lookFor + "%'"
+                        + "OR kh_nhiemvu LIKE '%" + lookFor + "%'";
+                st.executeUpdate(sql);
+                JOptionPane.showMessageDialog(null,"Success");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error");
+            e.printStackTrace();
+        }
+    }
 }

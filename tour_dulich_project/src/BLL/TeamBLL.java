@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class TeamBLL {
     public  static  ArrayList<tour_doan> team_list = new ArrayList();
-    public  void ReadStaffBLL() throws Exception
+    public  void ReadTeamBLL() throws Exception
     {
         TeamDAL data = new TeamDAL();
         if(team_list == null)
@@ -41,5 +41,13 @@ public class TeamBLL {
         data.DeleteTeamDAL(team);
         team_list.add(team);
     }
-
+    
+    public static ArrayList LookForTeamBLL(tour_doan team, String lookFor)
+    {
+        ArrayList<tour_doan> kq = new ArrayList<tour_doan>();
+        TeamDAL data=new TeamDAL();
+        data.LookForAllTeamDAL(lookFor);
+        kq.add(team);
+        return kq;
+    }
 }
