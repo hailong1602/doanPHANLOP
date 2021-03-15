@@ -60,7 +60,7 @@ public class ToursDAL {
     public void AddTourfDAL(tours tour) {
         try {
                 Statement st = connect.getStatement();
-                String sql = "INSERT INTO tours (nv_id, nv_ten, nv_sdt, nv_ngaysinh , nv_email, nv_cmnd) VALUES ("
+                String sql = "INSERT INTO tours (tours_id, tour_ten, tour_mota, loai_id , gia_id) VALUES ("
                         + "\"" + tour.getTour_id() + "\""
                         + ",\"" + tour.getTour_ten() + "\""
                         + ",\"" + tour.getTour_mota() + "\""
@@ -78,7 +78,23 @@ public class ToursDAL {
         try {
                 Statement st = connect.getStatement();
                 String sql = "DELETE FROM tours WHERE "
-                        + "nv_id = \"" + tour.getTour_id() + "\"";
+                        + "tour_id = \"" + tour.getTour_id() + "\"";
+                st.executeUpdate(sql);
+                JOptionPane.showMessageDialog(null,"Success");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error");
+            e.printStackTrace();
+        }
+    }
+    
+    public void LookForAllDAL(tours tour, String lookFor) {
+        try {
+                Statement st = connect.getStatement();
+                String sql = "SELECT * FROM tours WHERE tour_id LIKE '%" + lookFor + "%'"
+                        + "OR tour_ten LIKE '%" + lookFor + "%'"
+                        + "OR tour_mota LIKE '%" + lookFor + "%'"
+                        + "OR loai_id LIKE '%" + lookFor + "%'"
+                        + "OR gia_id LIKE '%" + lookFor + "%'";
                 st.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null,"Success");
         } catch (Exception e) {

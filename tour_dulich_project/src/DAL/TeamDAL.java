@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class TeamDAL {
     MySQLConnect connect = new MySQLConnect("localhost", "root", "", "tour_dulich");
-    public ArrayList<tour_doan> ReadStaffDAL() throws Exception{
+    public ArrayList<tour_doan> ReadTeamDAL() throws Exception{
         ArrayList<tour_doan> team_list = new ArrayList();
         String query = "SELECT * From tour_doan";
         Statement st = connect.getStatement();
@@ -40,7 +40,7 @@ public class TeamDAL {
         return team_list;
     }
     
-    public void InformationUpdateStaffDAL(tour_doan team) {
+    public void InformationUpdateDTeamAL(tour_doan team) {
         try{           
                 
                 Statement st = connect.getStatement();
@@ -60,7 +60,7 @@ public class TeamDAL {
             }
     }
 
-    public void AddStaffDAL(tour_doan team) {
+    public void AddTeamDAL(tour_doan team) {
         try {
                 Statement st = connect.getStatement();
                 String sql = "INSERT INTO tour_doan (doan_id, tour_id, doan_name, doan_ngaydi , doan_ngayve, doan_chitietchuongtrinh) VALUES ("
@@ -78,7 +78,7 @@ public class TeamDAL {
         }
     }
 
-    public void DeleteStaffDAL(tour_doan team) {
+    public void DeleteTeamDAL(tour_doan team) {
         try {
                 Statement st = connect.getStatement();
                 String sql = "DELETE FROM tour_doan WHERE "
