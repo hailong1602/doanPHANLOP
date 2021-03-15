@@ -5,11 +5,15 @@
  */
 package GUI;
 
+import BLL.CustomerBLL;
+import Entity.tour_khachhang;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import static java.awt.Font.BOLD;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -31,14 +35,38 @@ public class JTable_Doan_Khach extends javax.swing.JPanel {
         JPanel panel = new JPanel();
         Vector vctHeader = new Vector();
         Vector vctData = new Vector();
-        String[] strHeader = {"ID","Tên KH","SĐT","Ngày sinh","Email","CMND"};
+        String[] strHeader = {"ID","Tên KH","SĐT","Ngày sinh","Email","Nhiệm vụ"};
+        DefaultTableModel model = new DefaultTableModel(vctData,vctHeader);
         for (int i = 0; i< strHeader.length ; i++)
         {
             vctHeader.add(strHeader[i]);
         }
         JTable table = new JTable(strHeader.length,6);
-        table.setModel(new DefaultTableModel(vctData,vctHeader));
+        table.setModel(model);
         JScrollPane sp = new JScrollPane(table);
+        sp.setPreferredSize(new Dimension(1100, 900));
+        
+        //-------------Add data vao table
+        CustomerBLL customerBUS = new CustomerBLL();
+        if (CustomerBLL.customer_list.size() == 0) {
+            try {
+                customerBUS.ReadCustomerBLL();
+            } catch (Exception ex) {
+                Logger.getLogger(JFrame_Home.class.getName()).log(Level.ALL.SEVERE, null, ex);
+            }
+        }
+        
+        for (tour_khachhang customer : CustomerBLL.customer_list) {
+            Vector temp = new Vector();
+            temp.add(customer.getKh_id());
+            temp.add(customer.getKh_ten());
+            temp.add(customer.getKh_sdt());
+            temp.add(customer.getKh_ngaysinh());
+            temp.add(customer.getKh_email());
+            temp.add(customer.getKh_nhiemvu());
+            model.addRow(temp);
+        }
+        table.setModel(new DefaultTableModel(vctData,vctHeader));
         sp.setPreferredSize(new Dimension(1100, 900));
         
         table.getTableHeader().setFont(new Font("Arial", BOLD, 18)); //set font cho vector header

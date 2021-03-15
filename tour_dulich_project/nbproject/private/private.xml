@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/DAL/PriceDAL.java</file>
-            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/DAL/StaffDAL.java</file>
-            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/GUI/JFrame_Login.java</file>
-            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/GUI/JTable_Nhan_Vien.java</file>
-            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/GUI/JFrame_Home.java</file>
-            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/DAL/MySQLConnect.java</file>
-            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/BLL/StaffBLL.java</file>
+            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/GUI/JTable_Tour_Dulich.java</file>
+            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/GUI/JTable_Doan_Khach.java</file>
+            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/DAL/ToursDAL.java</file>
+            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/BLL/ToursBLL.java</file>
+            <file>file:/C:/Users/nguye/Documents/NetBeansProjects/Git/DoAn_TourDULICH/doanPHANLOP/tour_dulich_project/src/GUI/JFrame_Khach_Hang.java</file>
         </group>
     </open-files>
 </project-private>

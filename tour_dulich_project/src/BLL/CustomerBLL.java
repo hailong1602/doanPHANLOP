@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class CustomerBLL {
     public  static  ArrayList<tour_khachhang> customer_list = new ArrayList();
-    public  void ReadStaffBLL() throws Exception
+    public  void ReadCustomerBLL() throws Exception
     {
         CustomerDAL data = new CustomerDAL();
         if(customer_list == null)

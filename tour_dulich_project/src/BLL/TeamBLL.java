@@ -20,25 +20,25 @@ public class TeamBLL {
         TeamDAL data = new TeamDAL();
         if(team_list == null)
             team_list = new ArrayList<>();
-        team_list = data.ReadStaffDAL();
+        team_list = data.ReadTeamDAL();
     }
     
     public static void AddTeamDAL(tour_doan team)
     {
         TeamDAL data = new TeamDAL();
-        data.AddStaffDAL(team);//gọi hàm thêm bên DAO để thêm sách vào database
+        data.AddTeamDAL(team);//gọi hàm thêm bên DAO để thêm sách vào database
         team_list.add(team);//
     }
     public static void InformationUpdateTeamDAL(tour_doan team)
     {
         TeamDAL data=new TeamDAL();
-        data.InformationUpdateStaffDAL(team);
+        data.InformationUpdateDTeamAL(team);
         team_list.add(team);
     }
     public static void DeleteTeamDAL(tour_doan team)
     {
         TeamDAL data=new TeamDAL();
-        data.DeleteStaffDAL(team);
+        data.DeleteTeamDAL(team);
         team_list.add(team);
     }
 
