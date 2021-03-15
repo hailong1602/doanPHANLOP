@@ -40,11 +40,26 @@ public class JFrame_Home extends JFrame{
         add(menuPanel,BorderLayout.NORTH);
         Font font = new Font("Calibri Light", Font.CENTER_BASELINE, 22);
 //------------------------------------------------------------------------------
+        
+        Create_Menu_Panel();
+        
+//------------------------------------------------------------------------------      
+        tablePanel = new JPanel();
+        tablePanel.setPreferredSize(new Dimension(1200,1000));
+        add(tablePanel,BorderLayout.WEST);
+//------------------------------------------------------------------------------   
+        functionPanel = new JPanel();
+        add(functionPanel, BorderLayout.CENTER);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        setVisible(true);
+    }
+    
+    public void Create_Menu_Panel(){
         Font defaultFont = new Font("Arial",Font.BOLD,18);
         Color textColor = Color.decode("#ffffff");
         Color backgroundColor = Color.decode("#000000");
         Color hoverColor = Color.decode("#00aced");
-        
         JButton bt0 = new JButton("TRANG CHỦ");
         bt0.setPreferredSize(new Dimension(200, 60));
         bt0.setFocusPainted(false);
@@ -78,7 +93,7 @@ public class JFrame_Home extends JFrame{
         bt1.setPreferredSize(new Dimension(200, 60));
         bt1.setFocusPainted(false);
         bt1.setForeground(textColor);
-        bt1.setBackground(backgroundColor);
+            bt1.setBackground(backgroundColor);
         bt1.setFont(defaultFont);
         bt1.setOpaque(true);
         MouseListener bt1_mouse = new MouseAdapter() {
@@ -105,11 +120,11 @@ public class JFrame_Home extends JFrame{
             @Override
             public void mouseExited(MouseEvent me) {
                 bt1.setBackground(backgroundColor);
-            }
+            }     
         };
         bt1.addMouseListener(bt1_mouse);
         
-        JButton bt2 = new JButton("QUẢN LÝ ĐOÀN KHÁCH");
+        JButton bt2 = new JButton("QUẢN LÝ KHÁCH HÀNG");
         bt2.setPreferredSize(new Dimension(300, 60));
         bt2.setFocusPainted(false);
         bt2.setForeground(textColor);
@@ -119,14 +134,16 @@ public class JFrame_Home extends JFrame{
         MouseListener bt2_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                JTable_Doan_Khach tmp = new JTable_Doan_Khach();
+                bt2.setBackground(hoverColor);
+                menuPanel.updateUI();
+                
+                JTable_Khach_Hang tmp = new JTable_Khach_Hang();
                 JPanel temp = tmp.Doan_Khach_TableCreate();
                 tablePanel.removeAll();
                 tablePanel.add(temp);
                 tablePanel.updateUI();     
                 
-                functionPanel.removeAll();
-                functionPanel.updateUI();
+                
             }
 
             @Override
@@ -157,7 +174,10 @@ public class JFrame_Home extends JFrame{
                 tablePanel.add(temp);
                 tablePanel.updateUI();     
                 
+                Function_Nhan_Vien tmp1 = new Function_Nhan_Vien();
+                JPanel temp1 = tmp1.Nhan_Vien_FunctionCreate();
                 functionPanel.removeAll();
+                functionPanel.add(temp1);
                 functionPanel.updateUI();
             }
 
@@ -212,7 +232,17 @@ public class JFrame_Home extends JFrame{
         MouseListener bt5_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                JOptionPane.showInputDialog("Searching...");
+                JTable_Tim_Kiem tmp = new JTable_Tim_Kiem();
+                JPanel temp = tmp.Tim_Kiem_TableCreate();
+                tablePanel.removeAll();
+                tablePanel.add(temp);
+                tablePanel.updateUI();
+                
+                Function_Tim_Kiem tmp1 = new Function_Tim_Kiem();
+                JPanel temp1 = tmp1.Tim_Kiem_FunctionCreate();
+                functionPanel.removeAll();
+                functionPanel.add(temp1);
+                functionPanel.updateUI();
             }
 
             @Override
@@ -233,17 +263,6 @@ public class JFrame_Home extends JFrame{
         menuPanel.add(bt3);
         menuPanel.add(bt4);
         menuPanel.add(bt5);
-//------------------------------------------------------------------------------      
-        tablePanel = new JPanel();
-        tablePanel.setPreferredSize(new Dimension(1200,1000));
-        add(tablePanel,BorderLayout.WEST);
-//------------------------------------------------------------------------------   
-        functionPanel = new JPanel();
-        functionPanel.setBackground(Color.green);
-        add(functionPanel, BorderLayout.CENTER);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        setVisible(true);
     }
     
 

@@ -8,60 +8,45 @@ package GUI;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.GridLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import javax.swing.JTextField;
 /**
  *
  * @author dangh
  */
-public class Function_Tour_Dulich extends javax.swing.JPanel {
-    
-    public Function_Tour_Dulich() {
+public class Function_Tim_Kiem extends javax.swing.JPanel {
+
+    /**
+     * Creates new form Function_Tim_Kiem
+     */
+    public Function_Tim_Kiem() {
         initComponents();
     }
-    public JPanel Tour_Dulich_FunctionCreate(){
-        Font defaultFont = new Font("Arial",Font.BOLD,18);
+    public JPanel Tim_Kiem_FunctionCreate(){
+        Font defaultFont = new Font("Arial",Font.BOLD,22);
         Color textColor = Color.decode("#ffffff");
         Color backgroundColor = Color.decode("#000000");
         Color hoverColor = Color.decode("#00aced");
         
         JPanel panel = new JPanel();
-        JButton bt1 = new JButton("DANH SÁCH KHÁCH HÀNG");
-        bt1.setForeground(textColor);
-        bt1.setBackground(backgroundColor);
-        bt1.setPreferredSize(new Dimension(200, 40));
-        bt1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent me) {
-                
-            }
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                bt1.setBackground(hoverColor);
-            }
-            @Override
-            public void mouseExited(MouseEvent me) {
-                bt1.setBackground(backgroundColor);
-            }
-            
-            
-            
-        });
-        JButton bt2 = new JButton("Lập danh sách các địa điểm");
-        bt2.setPreferredSize(new Dimension(200, 40));
-        JButton bt3 = new JButton("Thống kê chi phí");
-        bt3.setPreferredSize(new Dimension(200, 40));
-        panel.add(bt1);
-        panel.add(bt2);
-        panel.add(bt3);
+        JTextField timkiem_text = new JTextField();
+        timkiem_text.setPreferredSize(new Dimension(400, 40));
+        timkiem_text.setFont(defaultFont);
+        panel.add(timkiem_text);
+        JButton timkiem_button = new JButton();
+        timkiem_button.setPreferredSize(new Dimension(100, 40));
+        timkiem_button.setBackground(backgroundColor);
+        timkiem_button.setFont(defaultFont);
+        timkiem_button.setForeground(textColor);
+        timkiem_button.setIcon(new ImageIcon("D:\\doanPHANLOP\\tour_dulich_project\\src\\Images\\search.png"));
+        panel.add(timkiem_button);
+        
         return panel;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

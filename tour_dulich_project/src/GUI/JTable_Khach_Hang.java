@@ -19,12 +19,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author dangh
  */
-public class JTable_Doan_Khach extends javax.swing.JPanel {
+public class JTable_Khach_Hang extends javax.swing.JPanel {
 
     /**
      * Creates new form Doan_Khach_Panel
      */
-    public JTable_Doan_Khach() {
+    public JTable_Khach_Hang() {
         initComponents();
     }
     public JPanel Doan_Khach_TableCreate(){

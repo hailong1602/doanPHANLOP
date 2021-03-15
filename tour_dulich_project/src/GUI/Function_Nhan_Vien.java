@@ -8,57 +8,52 @@ package GUI;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.Year;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author dangh
  */
-public class Function_Tour_Dulich extends javax.swing.JPanel {
-    
-    public Function_Tour_Dulich() {
+public class Function_Nhan_Vien extends javax.swing.JPanel {
+
+    /**
+     * Creates new form Function_Nhan_Vien
+     */
+    public Function_Nhan_Vien() {
         initComponents();
     }
-    public JPanel Tour_Dulich_FunctionCreate(){
-        Font defaultFont = new Font("Arial",Font.BOLD,18);
+    public JPanel Nhan_Vien_FunctionCreate(){
+        Font defaultFont = new Font("Arial",Font.BOLD,22);
         Color textColor = Color.decode("#ffffff");
         Color backgroundColor = Color.decode("#000000");
         Color hoverColor = Color.decode("#00aced");
         
         JPanel panel = new JPanel();
-        JButton bt1 = new JButton("DANH SÁCH KHÁCH HÀNG");
-        bt1.setForeground(textColor);
-        bt1.setBackground(backgroundColor);
-        bt1.setPreferredSize(new Dimension(200, 40));
-        bt1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent me) {
-                
-            }
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                bt1.setBackground(hoverColor);
-            }
-            @Override
-            public void mouseExited(MouseEvent me) {
-                bt1.setBackground(backgroundColor);
-            }
-            
-            
-            
-        });
-        JButton bt2 = new JButton("Lập danh sách các địa điểm");
-        bt2.setPreferredSize(new Dimension(200, 40));
-        JButton bt3 = new JButton("Thống kê chi phí");
-        bt3.setPreferredSize(new Dimension(200, 40));
-        panel.add(bt1);
-        panel.add(bt2);
-        panel.add(bt3);
+        panel.setLayout(new GridLayout(6,2));
+        JLabel bt1 = new JLabel("THÔNG TIN NHÂN VIÊN");
+        String[] name = {"ID NHÂN VIÊN:","TÊN NHÂN VIÊN:","SỐ ĐIỆN THOẠI:","NGÀY SINH:","EMAIL:","CHỨC VỤ:"};
+        JLabel[] label = new JLabel[name.length];
+        JTextField[] textfield = new JTextField[name.length];
+
+        for (int i = 0 ; i < label.length ; i++){
+            label[i] = new JLabel(name[i]);
+            textfield[i] = new JTextField();
+            textfield[i].setPreferredSize(new Dimension(300, 50));
+            label[i].setFont(defaultFont);
+            textfield[i].setFont(defaultFont);       
+            panel.add(label[i]);
+            panel.add(textfield[i]);
+        }
+        
         return panel;
     }
 
