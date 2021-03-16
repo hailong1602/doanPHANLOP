@@ -58,6 +58,7 @@ public class JTable_Tour_Dulich extends javax.swing.JPanel {
         if (ToursBLL.tour_list.size() == 0) {
             try {
                 tourBUS.ReadToursBLL();
+                tourBUS.GetTour_SpecieBLL();
             } catch (Exception ex) {
                 Logger.getLogger(JFrame_Home.class.getName()).log(Level.ALL.SEVERE, null, ex);
             }

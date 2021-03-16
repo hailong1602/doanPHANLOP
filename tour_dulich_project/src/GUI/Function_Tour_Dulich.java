@@ -48,14 +48,45 @@ public class Function_Tour_Dulich extends javax.swing.JPanel {
             public void mouseExited(MouseEvent me) {
                 bt1.setBackground(backgroundColor);
             }
-            
-            
-            
         });
         JButton bt2 = new JButton("Lập danh sách các địa điểm");
+        bt2.setForeground(textColor);
+        bt2.setBackground(backgroundColor);
         bt2.setPreferredSize(new Dimension(200, 40));
-        JButton bt3 = new JButton("Thống kê chi phí");
+        bt2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                
+            }
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bt2.setBackground(hoverColor);
+            }
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bt2.setBackground(backgroundColor);
+            }
+        });
+        JButton bt3 = new JButton("Lập tour mới");
+        bt3.setForeground(textColor);
+        bt3.setBackground(backgroundColor);
         bt3.setPreferredSize(new Dimension(200, 40));
+        bt3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                JFrame_AddTour add_tour = new JFrame_AddTour();
+                new JFrame_AddTour().setVisible(true);
+                
+            }
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bt3.setBackground(hoverColor);
+            }
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bt3.setBackground(backgroundColor);
+            }
+        });
         panel.add(bt1);
         panel.add(bt2);
         panel.add(bt3);

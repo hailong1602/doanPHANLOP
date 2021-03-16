@@ -8,6 +8,8 @@ package BLL;
 import DAL.ToursDAL;
 import java.util.ArrayList;
 import Entity.tours;
+import Entity.tours_loai;
+import java.util.Vector;
 
 /**
  *
@@ -15,12 +17,21 @@ import Entity.tours;
  */
 public class ToursBLL {
     public  static  ArrayList<tours> tour_list = new ArrayList();
+    public  static  ArrayList<tours_loai> tour_specie_list = new ArrayList();
     public  void ReadToursBLL() throws Exception
     {
         ToursDAL data = new ToursDAL();
         if(tour_list == null)
             tour_list = new ArrayList<>();
         tour_list = data.ReadTourDAL();
+    }
+    
+    public  void GetTour_SpecieBLL() throws Exception
+    {
+        ToursDAL data = new ToursDAL();
+        if(tour_specie_list == null)
+            tour_specie_list = new ArrayList();
+        tour_specie_list = data.GetTourAndSpecieDAL();
     }
     
     public static void AddToursDAL(tours tour)
