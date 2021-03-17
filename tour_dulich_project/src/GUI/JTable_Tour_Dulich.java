@@ -51,14 +51,13 @@ public class JTable_Tour_Dulich extends javax.swing.JPanel {
         {
             vctHeader.add(strHeader[i]);
         }
-        sp.setPreferredSize(new Dimension(900, 900));
+        sp.setPreferredSize(new Dimension(1100, 900));
         
         //-------------Add data vao table
         ToursBLL tourBUS = new ToursBLL();
         if (ToursBLL.tour_list.size() == 0) {
             try {
-                tourBUS.ReadToursBLL();
-                tourBUS.GetTour_SpecieBLL();
+                
             } catch (Exception ex) {
                 Logger.getLogger(JFrame_Home.class.getName()).log(Level.ALL.SEVERE, null, ex);
             }

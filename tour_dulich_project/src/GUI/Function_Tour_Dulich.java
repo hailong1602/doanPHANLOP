@@ -8,10 +8,12 @@ package GUI;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -20,22 +22,27 @@ import javax.swing.JPanel;
  * @author dangh
  */
 public class Function_Tour_Dulich extends javax.swing.JPanel {
+    Font defaultFont = new Font("Arial",Font.BOLD,18);
+    Color textColor = Color.decode("#ffffff");
+    Color backgroundColor = Color.decode("#000000");
+    Color hoverColor = Color.decode("#00aced");
     
     public Function_Tour_Dulich() {
         initComponents();
     }
     public JPanel Tour_Dulich_FunctionCreate(){
-        Font defaultFont = new Font("Arial",Font.BOLD,18);
-        Color textColor = Color.decode("#ffffff");
-        Color backgroundColor = Color.decode("#000000");
-        Color hoverColor = Color.decode("#00aced");
+        
+        
         
         JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 2, 10 ,10 ));
+        panel.setPreferredSize(new Dimension(400,400));
+        
         JButton bt1 = new JButton("DANH SÁCH KHÁCH HÀNG");
+        bt1.setFont(defaultFont);
         bt1.setForeground(textColor);
         bt1.setBackground(backgroundColor);
-        bt1.setPreferredSize(new Dimension(200, 40));
-        bt1.addMouseListener(new MouseAdapter() {
+        MouseListener bt1_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
                 
@@ -48,12 +55,15 @@ public class Function_Tour_Dulich extends javax.swing.JPanel {
             public void mouseExited(MouseEvent me) {
                 bt1.setBackground(backgroundColor);
             }
-        });
-        JButton bt2 = new JButton("Lập danh sách các địa điểm");
+        };
+        bt1.addMouseListener(bt1_mouse);
+        
+        
+        JButton bt2 = new JButton("DANH SÁCH CÁC ĐỊA ĐIỂM");
+        bt2.setFont(defaultFont);
         bt2.setForeground(textColor);
         bt2.setBackground(backgroundColor);
-        bt2.setPreferredSize(new Dimension(200, 40));
-        bt2.addMouseListener(new MouseAdapter() {
+        MouseListener bt2_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
                 
@@ -66,16 +76,17 @@ public class Function_Tour_Dulich extends javax.swing.JPanel {
             public void mouseExited(MouseEvent me) {
                 bt2.setBackground(backgroundColor);
             }
-        });
-        JButton bt3 = new JButton("Lập tour mới");
+        };
+        bt2.addMouseListener(bt2_mouse);
+        
+        
+        JButton bt3 = new JButton("THỐNG KÊ");
+        bt3.setFont(defaultFont);
         bt3.setForeground(textColor);
         bt3.setBackground(backgroundColor);
-        bt3.setPreferredSize(new Dimension(200, 40));
-        bt3.addMouseListener(new MouseAdapter() {
+        MouseListener bt3_mouse = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                JFrame_AddTour add_tour = new JFrame_AddTour();
-                new JFrame_AddTour().setVisible(true);
                 
             }
             @Override
@@ -86,13 +97,42 @@ public class Function_Tour_Dulich extends javax.swing.JPanel {
             public void mouseExited(MouseEvent me) {
                 bt3.setBackground(backgroundColor);
             }
-        });
+        };
+        bt3.addMouseListener(bt3_mouse);
+        
+        JButton bt4 = new JButton("DOANH THU");
+        bt4.setFont(defaultFont);
+        bt4.setForeground(textColor);
+        bt4.setBackground(backgroundColor);
+        MouseListener bt4_mouse = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                
+            }
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bt4.setBackground(hoverColor);
+            }
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bt4.setBackground(backgroundColor);
+            }
+        };
+        bt4.addMouseListener(bt4_mouse);
+        
         panel.add(bt1);
         panel.add(bt2);
         panel.add(bt3);
+        panel.add(bt4);
         return panel;
     }
-
+    public JPanel Tour_Dulich_ImageCreate(){
+        JPanel image = new JPanel();
+        image.setLayout(null);
+        image.setPreferredSize(new Dimension(400, 400));
+        image.setBackground(Color.pink);
+        return image;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

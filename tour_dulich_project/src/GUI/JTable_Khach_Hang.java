@@ -47,27 +47,27 @@ public class JTable_Khach_Hang extends javax.swing.JPanel {
         sp.setPreferredSize(new Dimension(1100, 900));
         
         //-------------Add data vao table
-        CustomerBLL customerBUS = new CustomerBLL();
-        if (CustomerBLL.customer_list.size() == 0) {
-            try {
-                customerBUS.ReadCustomerBLL();
-            } catch (Exception ex) {
-                Logger.getLogger(JFrame_Home.class.getName()).log(Level.ALL.SEVERE, null, ex);
-            }
-        }
-        
-        for (tour_khachhang customer : CustomerBLL.customer_list) {
-            Vector temp = new Vector();
-            temp.add(customer.getKh_id());
-            temp.add(customer.getKh_ten());
-            temp.add(customer.getKh_sdt());
-            temp.add(customer.getKh_ngaysinh());
-            temp.add(customer.getKh_email());
-            temp.add(customer.getKh_nhiemvu());
-            model.addRow(temp);
-        }
-        table.setModel(new DefaultTableModel(vctData,vctHeader));
-        sp.setPreferredSize(new Dimension(1100, 900));
+//        CustomerBLL customerBUS = new CustomerBLL();
+//        if (CustomerBLL.customer_list.size() == 0) {
+//            try {
+//                customerBUS.ReadCustomerBLL();
+//            } catch (Exception ex) {
+//                Logger.getLogger(JFrame_Home.class.getName()).log(Level.ALL.SEVERE, null, ex);
+//            }
+//        }
+//        
+//        for (tour_khachhang customer : CustomerBLL.customer_list) {
+//            Vector temp = new Vector();
+//            temp.add(customer.getKh_id());
+//            temp.add(customer.getKh_ten());
+//            temp.add(customer.getKh_sdt());
+//            temp.add(customer.getKh_ngaysinh());
+//            temp.add(customer.getKh_email());
+//            temp.add(customer.getKh_nhiemvu());
+//            model.addRow(temp);
+//        }
+//        table.setModel(new DefaultTableModel(vctData,vctHeader));
+//        sp.setPreferredSize(new Dimension(1100, 900));
         
         table.getTableHeader().setFont(new Font("Arial", BOLD, 18)); //set font cho vector header
         table.getTableHeader().setForeground(Color.black); //set màu chữ cho header

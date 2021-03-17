@@ -11,12 +11,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import static java.awt.Font.BOLD;
+import java.awt.event.MouseEvent;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -82,9 +84,24 @@ public class JTable_Nhan_Vien extends javax.swing.JPanel {
         table.getColumnModel().getColumn(3).setPreferredWidth(100);
         table.getColumnModel().getColumn(4).setPreferredWidth(250);
         table.getColumnModel().getColumn(5).setPreferredWidth(100);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                int j = table.getSelectedRow();
+                String[] array = new String[6];
+                if (j>=0){
+                    array[0] = model.getValueAt(j, 0).toString();
+                    array[1] = model.getValueAt(j, 1).toString();
+                    array[2] = model.getValueAt(j, 2).toString();
+                    array[3] = model.getValueAt(j, 3).toString();
+                    array[4] = model.getValueAt(j, 4).toString();
+                    array[5] = model.getValueAt(j, 5).toString();
+                }
+                JFrame_Home.update_nhanvien_function(array);
+            } 
+        });
         
         panel.setPreferredSize(new Dimension(1200,1000));
-        panel.setBackground(Color.yellow);
         panel.add(sp);
         panel.setVisible(true);
         return panel;

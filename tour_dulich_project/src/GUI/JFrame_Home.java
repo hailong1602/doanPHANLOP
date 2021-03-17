@@ -28,7 +28,10 @@ import java.util.logging.Logger;
  * @author nguye
  */
 public class JFrame_Home extends JFrame{
-    JPanel tablePanel,menuPanel,functionPanel;
+
+    
+    JPanel tablePanel,menuPanel;
+    static JPanel functionPanel;
     
     public void init()
     {
@@ -106,9 +109,11 @@ public class JFrame_Home extends JFrame{
                 tablePanel.updateUI();
                 
                 Function_Tour_Dulich tmp1 = new Function_Tour_Dulich();
-                JPanel temp1 = tmp1.Tour_Dulich_FunctionCreate();
+                JPanel temp1 = tmp1.Tour_Dulich_ImageCreate();
+                JPanel temp2 = tmp1.Tour_Dulich_FunctionCreate();
                 functionPanel.removeAll();
                 functionPanel.add(temp1);
+                functionPanel.add(temp2);
                 functionPanel.updateUI();
             }
 
@@ -143,7 +148,8 @@ public class JFrame_Home extends JFrame{
                 tablePanel.add(temp);
                 tablePanel.updateUI();     
                 
-                
+                functionPanel.removeAll();
+                functionPanel.updateUI();
             }
 
             @Override
@@ -174,11 +180,9 @@ public class JFrame_Home extends JFrame{
                 tablePanel.add(temp);
                 tablePanel.updateUI();     
                 
-                Function_Nhan_Vien tmp1 = new Function_Nhan_Vien();
-                JPanel temp1 = tmp1.Nhan_Vien_FunctionCreate();
                 functionPanel.removeAll();
-                functionPanel.add(temp1);
                 functionPanel.updateUI();
+                
             }
 
             @Override
@@ -240,8 +244,10 @@ public class JFrame_Home extends JFrame{
                 
                 Function_Tim_Kiem tmp1 = new Function_Tim_Kiem();
                 JPanel temp1 = tmp1.Tim_Kiem_FunctionCreate();
+                JPanel temp2 = tmp1.Tim_Kiem_NC_FunctionCreate();
                 functionPanel.removeAll();
                 functionPanel.add(temp1);
+                functionPanel.add(temp2);
                 functionPanel.updateUI();
             }
 
@@ -264,7 +270,13 @@ public class JFrame_Home extends JFrame{
         menuPanel.add(bt4);
         menuPanel.add(bt5);
     }
-    
+    static void update_nhanvien_function(String[] array) {
+        Function_Nhan_Vien tmp1 = new Function_Nhan_Vien();
+        JPanel temp1 = tmp1.Nhan_Vien_FunctionCreate(array);
+        functionPanel.removeAll();
+        functionPanel.add(temp1);
+        functionPanel.updateUI();
+    }
 
   
     public static void main(String[] args) {

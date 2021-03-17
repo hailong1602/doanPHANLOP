@@ -9,10 +9,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 /**
  *
@@ -39,7 +45,7 @@ public class Function_Tim_Kiem extends javax.swing.JPanel {
         panel.add(timkiem_text);
         JButton timkiem_button = new JButton();
         timkiem_button.setPreferredSize(new Dimension(100, 40));
-        timkiem_button.setBackground(backgroundColor);
+        timkiem_button.setBackground(hoverColor);
         timkiem_button.setFont(defaultFont);
         timkiem_button.setForeground(textColor);
         timkiem_button.setIcon(new ImageIcon("D:\\doanPHANLOP\\tour_dulich_project\\src\\Images\\search.png"));
@@ -47,6 +53,58 @@ public class Function_Tim_Kiem extends javax.swing.JPanel {
         
         return panel;
     }
+    public JPanel Tim_Kiem_NC_FunctionCreate(){
+        Font defaultFont = new Font("Arial",Font.BOLD,14);
+        Color textColor = Color.decode("#ffffff");
+        Color backgroundColor = Color.decode("#000000");
+        Color hoverColor = Color.decode("#00aced");
+        
+        JRadioButton tourButton   = new JRadioButton("THEO TOUR");
+        tourButton.setFont(defaultFont);
+        tourButton.setFocusPainted(false);
+        tourButton.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                JOptionPane.showMessageDialog(tourButton, "tour");
+            }
+        });
+        
+        JRadioButton doanButton    = new JRadioButton("THEO ĐOÀN");
+        doanButton.setFont(defaultFont);
+        doanButton.setFocusPainted(false);
+        doanButton.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                JOptionPane.showMessageDialog(doanButton, "Doan");
+            }
+        });
+        
+        JRadioButton khachButton = new JRadioButton("THEO KHÁCH HÀNG");
+        khachButton.setFont(defaultFont);
+        khachButton.setFocusPainted(false);
+        khachButton.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                JOptionPane.showMessageDialog(khachButton, "Khach");
+            }
+        });
+        
+        ButtonGroup bgroup = new ButtonGroup();
+        bgroup.add(tourButton);
+        bgroup.add(doanButton);
+        bgroup.add(khachButton);
+        
+        JPanel radioPanel = new JPanel();
+        radioPanel.setPreferredSize(new Dimension(500, 100));
+        radioPanel.setLayout(new GridLayout(3, 1));
+        radioPanel.add(tourButton);
+        radioPanel.add(doanButton);
+        radioPanel.add(khachButton);
+        radioPanel.setBorder(BorderFactory.createTitledBorder(
+                   BorderFactory.createEtchedBorder(), "TÌM KIẾM NÂNG CAO"));
+        return radioPanel;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
